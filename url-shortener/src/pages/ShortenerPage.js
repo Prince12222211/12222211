@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, TextField, Typography, Paper, Grid, Alert, Link } from '@mui/material';
+import { Box, Button, TextField, Typography, Paper, Grid, Alert } from '@mui/material';
 import logEvent from '../utils/loggingMiddleware';
 import { useNavigate } from 'react-router-dom';
 
@@ -187,19 +187,11 @@ const ShortenerPage = () => {
                     <Box sx={{ mt: 4 }}>
                         <Typography variant="h6">Shortened URLs</Typography>
                         {results.map((res, i) => (
-                            <Paper key={i} sx={{ p: 3, my: 2, borderRadius: 2, boxShadow: 2 }}>
-                                <Typography variant="subtitle1" fontWeight="bold">Original:</Typography>
-                                <Typography variant="body2" sx={{ wordBreak: 'break-all', mb: 1 }}>{res.url}</Typography>
-                                <Typography variant="subtitle1" fontWeight="bold" component="span">Short URL: </Typography>
-                                <Link href={window.location.origin + '/' + res.shortcode} target="_blank" rel="noopener" sx={{ color: 'primary.main', fontWeight: 'bold', wordBreak: 'break-all' }}>
-                                    {window.location.origin + '/' + res.shortcode}
-                                </Link>
-                                <br />
-                                <Typography variant="subtitle1" fontWeight="bold" component="span">Expires At: </Typography>
-                                <Typography variant="body2" component="span">{new Date(res.expiresAt).toLocaleString()}</Typography>
-                                <br />
-                                <Typography variant="subtitle1" fontWeight="bold" component="span">Redirect Count: </Typography>
-                                <Typography variant="body2" component="span">{res.redirectCount || 0}</Typography>
+                            <Paper key={i} sx={{ p: 2, my: 1 }}>
+                                <Typography><b>Original:</b> {res.url}</Typography>
+                                <Typography><b>Short URL:</b> <span style={{ color: '#1976d2' }}>{window.location.origin + '/' + res.shortcode}</span></Typography>
+                                <Typography><b>Expires At:</b> {new Date(res.expiresAt).toLocaleString()}</Typography>
+                                <Typography><b>Redirect Count:</b> {res.redirectCount || 0}</Typography>
                             </Paper>
                         ))}
                     </Box>
