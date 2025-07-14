@@ -7,7 +7,7 @@
 A user-friendly URL Shortener application built with React and Material UI. The app allows you to shorten URLs, set custom shortcodes and expiry, and view analytics for each link—all managed on the client side.
 
 ### Features
-- Shorten up to 5 URLs at once
+- Shorten up to 3 URLs at once
 - Custom or auto-generated shortcodes (guaranteed unique)
 - Set expiry time for each short URL (default: 30 minutes)
 - Client-side validation and error handling
